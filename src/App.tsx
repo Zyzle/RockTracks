@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import './App.scss';
 
 import TrackList from './TrackList/TrackList';
+import TrackInfo from './TrackInfo/TrackInfo';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <TrackList />
-      </div>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={TrackList} />
+          <Route path="/:id" component={TrackInfo} />
+        </Switch>
+      </Router>
     );
   }
 }

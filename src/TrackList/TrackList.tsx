@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Link } from 'react-router-dom';
 
 import { SearchResults } from '../models/ITunes';
 
@@ -30,13 +31,13 @@ class TrackList extends PureComponent<{}, TrackState> {
   render() {
     let content = <b>No results to display</b>;
 
-    if (this.state.results && this.state.results.results.length) {
+    if (this.state.results && this.state.results.results) {
       const results = this.state.results.results.map((result) => {
         return (
           <div key={result.trackId}>
             <img src={result.artworkUrl30} alt={result.trackName}></img>
             <div>
-              <div>{result.trackName}</div> 
+              <div><Link to={`/${result.trackId}`}>{result.trackName}</Link></div> 
               <div>{result.artistName}</div>
               <div>{result.trackPrice}</div>
             </div>
