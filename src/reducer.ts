@@ -1,8 +1,5 @@
-import { Action } from "redux";
-
-import * as Actions from './actions';
+import * as SearchActions from './actions';
 import { SearchResults } from './models/ITunes';
-import { response } from './TMPResp';
 
 export interface TracksState extends SearchResults {
   pending: boolean;
@@ -16,19 +13,27 @@ const initialState: TracksState = {
   resultsCount: 0
 };
 
-export function trackListReducer(state: TracksState = initialState, action: Action) {
+export function trackListReducer(state: TracksState = initialState, action: SearchActions.Actions) {
   switch (action.type) {
-    case Actions.SEARCH_TRACKS:
+    case SearchActions.SEARCH_TRACKS:
       return {
         ...state,
         pending: true,
       };
-    case Actions.SEARCH_SUCCESS:
+    case SearchActions.SEARCH_SUCCESS:
       return {
         ...state,
         pending: false,
-        results: (action as {type: string, results: {results: []}}).results.results,
-        resultsCount: (action as { type: string, results:{ resultCount: number } }).results.resultCount
+        results: action.payload.results,
+        resultsCount: action.payload.resultsCount,
+        error: null
+      };
+    case SearchActions.SEARCH_FAILURE:
+      return {
+        pending: false,
+        results: [],
+        resultsCount: 0,
+        error: action.payload
       };
     default:
       return state;
