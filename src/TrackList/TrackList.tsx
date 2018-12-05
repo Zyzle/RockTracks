@@ -7,7 +7,8 @@ import { TracksState } from '../reducer';
 import './TrackList.scss';
 
 // search function isn't actually used here anymore but will
-// leave as an example of how dispatch props were added
+// leave as an example of how dispatch props could be added 
+// to the intersection
 type TrackListProps = TracksState & RouteComponentProps & {
   search :() => void
 };
