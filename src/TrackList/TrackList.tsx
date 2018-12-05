@@ -1,46 +1,39 @@
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 
-import { SearchResults } from '../models/ITunes';
+import { Result} from '../models/ITunes';
+import { TracksState } from '../reducer';
 
 import './TrackList.scss';
 
-interface TrackState {
-  results: SearchResults | null;
-}
+// search function isn't actually used here anymore but will
+// leave as an example of how dispatch props were added
+type TrackListProps = TracksState & RouteComponentProps & {
+  search :() => void
+};
 
-class TrackList extends PureComponent<{}, TrackState> {
-  constructor(props: any) {
+class TrackList extends PureComponent<TrackListProps> {
+  constructor(props: TrackListProps) {
     super(props);
-
-    this.state = {
-      results: null
-    };
-  }
- 
-  componentDidMount() {
-    fetch('https://itunes.apple.com/search?term=rock&media=music')
-      .then((response: Response) => {
-        return response.json();
-      })
-      .then((results: SearchResults) => {
-        this.setState({results});
-      });
   }
   
   render() {
     let content = <b>No results to display</b>;
 
-    if (this.state.results && this.state.results.results) {
-      const results = this.state.results.results.map((result) => {
+    if (this.props.results && this.props.results.length) {
+      const results = this.props.results.map((result: Result) => {
         return (
           <div key={result.trackId}>
             <img src={result.artworkUrl30} alt={result.trackName}></img>
             <div>
-              <div><Link to={`/${result.trackId}`}>{result.trackName}</Link></div> 
+              <div>{result.trackName}</div> 
               <div>{result.artistName}</div>
-              <div>{result.trackPrice}</div>
+              <div>${result.trackPrice}</div>
             </div>
+            <Link to={`/${result.trackId}`}>
+              <button>track info</button>
+            </Link>
+            <hr />
           </div>
         );
       });
@@ -49,6 +42,7 @@ class TrackList extends PureComponent<{}, TrackState> {
 
     return (
       <div>
+        <div>{this.props.pending ? 'Loading....' : ''}</div>
         {content}
       </div>
     )
