@@ -1,3 +1,9 @@
+## Future work:
+
+* **Testing**: Right now there isn't any. I would start by adding some basic snapshot tests to the components checking that the HTML rendered is expected given a set of props. Next step after that would be to test the functionality of the reducer, as a pure function testing is simple to accomplish and will provide the most benefit as the majority of the app logic should be contained here or in the sagas.
+*  **Styling**: As UI wasn't considered part of this test I haven't done any but it should be simple enough to make something that looks good with some basic scss.
+*  **Search parameters**: It would be simple enough to paramaterise the search action to take in `term` and `media` values to allow searching for different items in the API
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
