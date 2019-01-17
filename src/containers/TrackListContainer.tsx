@@ -3,7 +3,7 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import { search } from '../actions';
 import { TracksState } from '../reducer';
-import TrackList from '../TrackList/TrackList';
+import TrackList from '../components/TrackList/TrackList';
 
 const mapStateToProps = (state: TracksState, ownProps: RouteComponentProps) => {
   return {

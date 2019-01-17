@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrackList Component should render 1`] = `
+<div>
+  <div>
+    
+  </div>
+  <div>
+    <div>
+      <img
+        alt="A track"
+        src="https://via.placeholder.com/30"
+      />
+      <div>
+        <div>
+          A track
+        </div>
+        <div>
+          An artist
+        </div>
+        <div>
+          $
+          1.99
+        </div>
+      </div>
+      <a
+        href="/789"
+        onClick={[Function]}
+      >
+        <button>
+          track info
+        </button>
+      </a>
+      <hr />
+    </div>
+  </div>
+</div>
+`;

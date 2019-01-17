@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 
-import { Result} from '../models/ITunes';
-import { TracksState } from '../reducer';
+import { Result} from '../../models/ITunes';
+import { TracksState } from '../../reducer';
 
 import './TrackList.scss';
 
 // search function isn't actually used here anymore but will
 // leave as an example of how dispatch props could be added 
 // to the intersection
-type TrackListProps = TracksState & RouteComponentProps & {
+export type TrackListProps = TracksState & RouteComponentProps & {
   search :() => void
 };
 

@@ -3,7 +3,7 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import { TracksState } from '../reducer';
 import { Result } from '../models/ITunes';
-import TrackInfo from '../TrackInfo/TrackInfo';
+import TrackInfo from '../components/TrackInfo/TrackInfo';
 
 const mapStateToProps = (state: TracksState, ownProps: RouteComponentProps<{id: string}>) => {
   const selectedTrack = state.results.filter((track: Result) => {

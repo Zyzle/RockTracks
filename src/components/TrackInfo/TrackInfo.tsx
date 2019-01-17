@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router-dom';
 
 import { Duration, DateTime } from 'luxon';
 
-import { Result } from '../models/ITunes';
+import { Result } from '../../models/ITunes';
 
 import './TrackInfo.scss';
 
