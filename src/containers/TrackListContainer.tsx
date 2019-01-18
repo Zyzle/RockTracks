@@ -5,9 +5,9 @@ import { search } from '../actions';
 import { TracksState } from '../reducer';
 import TrackList from '../components/TrackList/TrackList';
 
-const mapStateToProps = (state: TracksState, ownProps: RouteComponentProps) => {
+const mapStateToProps = (state: {trackList: TracksState}, ownProps: RouteComponentProps) => {
   return {
-    ...state
+    ...state.trackList
   };
 };
 

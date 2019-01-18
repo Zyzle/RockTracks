@@ -21,11 +21,11 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@types/jest": "23.3.10",
+    "@types/jest": "^23.3.10",
     "@types/luxon": "^1.4.1",
-    "@types/node": "10.12.11",
-    "@types/react": "16.7.11",
-    "@types/react-dom": "16.0.11",
+    "@types/node": "^10.12.11",
+    "@types/react": "^16.7.11",
+    "@types/react-dom": "^16.0.11",
     "@types/react-redux": "^6.0.10",
     "@types/react-router-dom": "^4.3.1",
     "@types/react-test-renderer": "^16.0.3",
@@ -37,14 +37,18 @@
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1",
+    "react-scripts": "^2.1.1",
     "react-test-renderer": "^16.7.0",
     "redux": "^4.0.1",
-    "redux-saga": "^0.16.2",
+    "redux-observable": "^1.0.0",
+    "rxjs": "^6.3.3",
     "tslint": "^5.11.0",
-    "typescript": "3.2.1"
+    "typescript": "^3.2.1"
   },
   "jest": {
-    "coverageReporters": ["text", "html"]
+    "coverageReporters": [
+      "text",
+      "html"
+    ]
   }
 }
